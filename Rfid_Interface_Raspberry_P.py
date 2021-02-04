@@ -1,6 +1,6 @@
 #read.py
 '''
-        Thid file is used to read the data(UID) pre written by the manaufacture in the RFID
+        Thid file is used to read the data(UID) pre written by the manaufacture in the RFID 
 '''
 
 import RPi.GPIO as GPIO
