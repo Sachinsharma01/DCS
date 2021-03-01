@@ -15,8 +15,8 @@ api_headers= { 'Content-Type': 'application/json', 'appKey': TWX_APPKEY }
 
 while True:
     id, text = read.read()
-
     payload = {'UID': id }
+    print(id)
 
     # in a production environment, the SSL certificate should be verified -- there will be warnings about this on the logger
     response = requests.put(api_endpoint, headers=api_headers, json=payload, verify=False)
