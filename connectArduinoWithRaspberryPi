@@ -1,0 +1,20 @@
+'''Connect raspberry pi with arduino with USB port'''
+import serial
+serialObject = serial.Serial("/dev/ttyAcm0", 9600, timeout = 1)
+data = serialObject.readLine()
+print(data)
+
+'''ttyAMAO -> BlueTooth
+   ttyS0 -> GPIO
+   ttyACM0
+   ttyACM1    #Arduino port
+   ttyACM2
+   ttyUSB0
+'''
+'''Arduino Code'''
+void setup() {
+        Serial.begin(9600);
+}
+void loop() {
+        Serial.println("Hello from Arduino");
+}
