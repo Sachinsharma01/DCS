@@ -14,6 +14,8 @@ property1="UID"
 property2 = "FailureAttempts"
 property3 = "logInAttempts"
 property4 = "userName"
+property5 = "timeOfUser1"
+property5 = "timeOfUser1"
 
 '''Setup all the GPIO pins for the specific tasks'''
 GPIO.setmode(GPIO.BOARD)
@@ -25,6 +27,7 @@ GPIO.output(relay, GPIO.LOW)
 '''create an object to read the data from rfid'''
 reader = SimpleMFRC522()
 uid = 727073640024
+listUid = [727073640024]
 
 
 '''Url and API key to upload data on Thingworx'''
@@ -34,13 +37,15 @@ thingName = "191500402_rfid"
 headers = {'Content-Type' : 'application/json', 'appKey' : apiKey}
 
 fa = sa =0
+listUid = [727073640024]
 
 while True:
         try:
             print("Introduce Your Card:")
             UID, text = reader.read()
             sleep(2)
-            if UID == uid:
+            if UID in listUid:
+                t = time.time()
                 print(UID)
                 sa += 1
                 print(text)
